@@ -1,6 +1,6 @@
 package com.mojo.myapplication
 
-class Zoo(input: Input) {
+class Zoo(val input: Input) {
     private val animals = mutableListOf<Animal>()
 
     fun addAnimal() {
@@ -18,7 +18,7 @@ class Zoo(input: Input) {
                 "Panda" -> Panda(name, age, food, description)
                 "Monkey" -> {
                     print("Type true if monkey is injured, otherwise type false: ")
-                    Monkey(name, age, food, description, input().toBoolean())
+                    Monkey(name, age, food, description, input.input().toBoolean())
                 }
                 else -> { null }
             }
@@ -44,7 +44,7 @@ class Zoo(input: Input) {
                 "Panda" -> animals.remove(Panda(name, age, food, description))
                 "Monkey" -> {
                     print("Type true if monkey is injured, otherwise type false: ")
-                    val isInjured = input().toBoolean()
+                    val isInjured = input.input().toBoolean()
                     animals.remove(Monkey(name, age, food, description, isInjured))
                 }
                 else -> {}
@@ -56,16 +56,16 @@ class Zoo(input: Input) {
 
     fun askUserForAnimalData(): AnimalUserInput {
         print("What animal do you want to add in the zoo? ")
-        val animalType = userInputAnimalType()
+        val animalType = input.userInputAnimalType()
 
         print("Type animal's name: ")
-        val name = input()
+        val name = input.input()
         print("Type animal's age: ")
-        val age = inputInt()
+        val age = input.inputInt()
         print("Type animal's food: ")
-        val food = input()
+        val food = input.input()
         print("Describe the animal: ")
-        val description = input()
+        val description = input.input()
 
         return AnimalUserInput(animalType, name, age, food, description)
     }
@@ -76,7 +76,7 @@ class Zoo(input: Input) {
 
     fun countAnimalsOfSameType() {
         print("What type of animal do you want to count? ")
-        val animalType = userInputAnimalType()
+        val animalType = input.userInputAnimalType()
 
         val animalsOfSameType = getAnimalsOfSameType(animals, animalType).size
         println("Number of ${animalType}s: $animalsOfSameType")
@@ -103,7 +103,7 @@ class Zoo(input: Input) {
         print("What do you want the animals to do? ")
         val action = readLine()!!
 
-        val animalType = userInputAnimalType()
+        val animalType = input.userInputAnimalType()
 
         when (action) {
             "move" -> {

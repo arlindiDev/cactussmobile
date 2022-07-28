@@ -4,7 +4,7 @@ import kotlin.system.exitProcess
 
 fun selectFeatureBasedOnUserInput(zoo: Zoo) {
     with(zoo) {
-        when (inputInt()) {
+        when (zoo.input.inputInt()) {
             1 -> addAnimal()
             2 -> removeAnimal()
             3 -> countAnimals()
