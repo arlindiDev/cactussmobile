@@ -31,12 +31,12 @@ class MainActivity : AppCompatActivity() {
     var score = 0
     var count = 0
 
+
 data class ViewsClicked (
-    var clicked1: Boolean,
-    var clicked2: Boolean ,
-    var clicked3: Boolean,
-    var clicked4: Boolean
+    var clicked: Boolean,
+
 )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,14 +48,14 @@ data class ViewsClicked (
         textColor = findViewById(R.id.textColor)
         scoreText = findViewById(R.id.score)
 
-        nextRound(ViewsClicked(clicked1 = Boolean, clicked2 = Boolean))
+        nextRound()
     }
 
-    fun nextRound(isClicked:ViewsClicked) {
-        isClicked.clicked1 = false
-        isClicked.clicked2 = false
-        isClicked.clicked3 = false
-        isClicked.clicked4 = false
+    fun nextRound() {
+        var clicked1 =ViewsClicked(false)
+        var clicked2=ViewsClicked(false)
+        var clicked3=ViewsClicked(false)
+        var clicked4=ViewsClicked(false)
 
         scoreText.text = "Score: $score"
         val someColors = colors.toMutableList()
@@ -80,19 +80,19 @@ data class ViewsClicked (
         view4.setBackgroundColor(fourthColor.color)
         textColor.text = winningColor.emri
 
-        setOnClickForView(view1, firstColor, isClicked.clicked1)
-        setOnClickForView(view2, secondColor, isClicked.clicked2)
-        setOnClickForView(view3, thirdColor, isClicked.clicked3)
-        setOnClickForView(view4, fourthColor, isClicked.clicked4)
+        setOnClickForView(view1, firstColor, clicked1)
+        setOnClickForView(view2, secondColor, clicked2)
+        setOnClickForView(view3, thirdColor, clicked3)
+        setOnClickForView(view4, fourthColor, clicked4)
     }
 
-    fun setOnClickForView(view: View, color: Ngjyra, isClicked: Boolean) {
-       val newValue=isClicked
+    fun setOnClickForView(view: View, color: Ngjyra, isClicked: ViewsClicked) {
+
         view.setOnClickListener {
             if (!isClicked) {
                 if (color == winningColor) {
                     score--
-                    nextRound(isClicked)
+                    nextRound()
                 } else {
                     count++
                     textColor.text = "Left to go ${3 - count}"
@@ -103,7 +103,7 @@ data class ViewsClicked (
                 }
             }
 
-            isClicked = true
+            viewClicked = true
         }
     }
 }
