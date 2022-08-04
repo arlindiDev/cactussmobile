@@ -31,10 +31,12 @@ class MainActivity : AppCompatActivity() {
     var score = 0
     var count = 0
 
-    var clicked1 = false
-    var clicked2 = false
-    var clicked3 = false
-    var clicked4 = false
+data class ViewsClicked (
+    var clicked1: Boolean,
+    var clicked2: Boolean ,
+    var clicked3: Boolean,
+    var clicked4: Boolean
+)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,14 +48,14 @@ class MainActivity : AppCompatActivity() {
         textColor = findViewById(R.id.textColor)
         scoreText = findViewById(R.id.score)
 
-        nextRound()
+        nextRound(ViewsClicked(clicked1 = Boolean, clicked2 = Boolean))
     }
 
-    fun nextRound() {
-        clicked1 = false
-        clicked2 = false
-        clicked3 = false
-        clicked4 = false
+    fun nextRound(isClicked:ViewsClicked) {
+        isClicked.clicked1 = false
+        isClicked.clicked2 = false
+        isClicked.clicked3 = false
+        isClicked.clicked4 = false
 
         scoreText.text = "Score: $score"
         val someColors = colors.toMutableList()
@@ -78,18 +80,19 @@ class MainActivity : AppCompatActivity() {
         view4.setBackgroundColor(fourthColor.color)
         textColor.text = winningColor.emri
 
-        setOnClickForView(view1, firstColor, clicked1)
-        setOnClickForView(view2, secondColor, clicked2)
-        setOnClickForView(view3, thirdColor, clicked3)
-        setOnClickForView(view4, fourthColor, clicked4)
+        setOnClickForView(view1, firstColor, isClicked.clicked1)
+        setOnClickForView(view2, secondColor, isClicked.clicked2)
+        setOnClickForView(view3, thirdColor, isClicked.clicked3)
+        setOnClickForView(view4, fourthColor, isClicked.clicked4)
     }
 
     fun setOnClickForView(view: View, color: Ngjyra, isClicked: Boolean) {
+       val newValue=isClicked
         view.setOnClickListener {
             if (!isClicked) {
                 if (color == winningColor) {
                     score--
-                    nextRound()
+                    nextRound(isClicked)
                 } else {
                     count++
                     textColor.text = "Left to go ${3 - count}"
@@ -99,6 +102,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+
             isClicked = true
         }
     }
