@@ -9,7 +9,6 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private val colors = listOf(
-        Ngjyra("NgjyraDiqka", Color.parseColor("#00ff00")),
         Ngjyra("Black", Color.parseColor("#000000")),
         Ngjyra("Red", Color.RED),
         Ngjyra("BLUE", Color.BLUE),
@@ -28,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var scoreText: TextView
     var score = 0
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -42,6 +42,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun nextRound() {
+        var clicked1=false
+        var clicked2=false
+        var clicked3=false
+        var clicked4=false
+
         scoreText.text = "Score: $score"
         val someColors = colors.toMutableList()
 
@@ -68,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         var count = 0
 
         view1.setOnClickListener {
+            if(clicked1==false){
             if (firstColor == winningColor) {
                 score--
                 nextRound()
@@ -78,10 +84,12 @@ class MainActivity : AppCompatActivity() {
                     score++
                     nextRound()
                 }
-            }
+            }}
+            clicked1=true
         }
 
         view2.setOnClickListener {
+            if(clicked2==false){
             if (secondColor == winningColor) {
                 score--
                 nextRound()
@@ -93,9 +101,12 @@ class MainActivity : AppCompatActivity() {
                     nextRound()
                 }
             }
+            }
+            clicked2=true
         }
 
         view3.setOnClickListener {
+            if(clicked3==false){
             if (thirdColor == winningColor) {
                 score--
                 nextRound()
@@ -108,8 +119,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+            clicked3=true
+        }
 
         view4.setOnClickListener {
+            if(clicked4==false){
             if (fourthColor == winningColor) {
                 score--
                 nextRound()
@@ -121,6 +135,8 @@ class MainActivity : AppCompatActivity() {
                     nextRound()
                 }
             }
+        }
+            clicked4=true
         }
     }
 }
