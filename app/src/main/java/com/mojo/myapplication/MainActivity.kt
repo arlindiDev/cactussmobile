@@ -25,8 +25,16 @@ class MainActivity : AppCompatActivity() {
     lateinit var view4: View
     lateinit var textColor: TextView
     lateinit var scoreText: TextView
-    var score = 0
 
+    lateinit var firstColor: Ngjyra
+    lateinit var winningColor: Ngjyra
+    var score = 0
+    var count = 0
+
+    var clicked1 = false
+    var clicked2 = false
+    var clicked3 = false
+    var clicked4 = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,15 +50,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun nextRound() {
-        var clicked1 = false
-        var clicked2 = false
-        var clicked3 = false
-        var clicked4 = false
+        clicked1 = false
+        clicked2 = false
+        clicked3 = false
+        clicked4 = false
 
         scoreText.text = "Score: $score"
         val someColors = colors.toMutableList()
 
-        val firstColor = someColors[Random.nextInt(someColors.size)]
+        firstColor = someColors[Random.nextInt(someColors.size)]
         someColors.remove(firstColor)
 
         val secondColor = someColors[Random.nextInt(someColors.size)]
@@ -70,11 +78,16 @@ class MainActivity : AppCompatActivity() {
         view4.setBackgroundColor(fourthColor.color)
         textColor.text = winningColor.emri
 
-        var count = 0
+        setOnClickForView(view1, firstColor, clicked1)
+        setOnClickForView(view2, secondColor, clicked2)
+        setOnClickForView(view3, thirdColor, clicked3)
+        setOnClickForView(view4, fourthColor, clicked4)
+    }
 
-        view1.setOnClickListener {
-            if (!clicked1) {
-                if (firstColor == winningColor) {
+    fun setOnClickForView(view: View, color: Ngjyra, isClicked: Boolean) {
+        view.setOnClickListener {
+            if (!isClicked) {
+                if (color == winningColor) {
                     score--
                     nextRound()
                 } else {
@@ -86,66 +99,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-            clicked1 = true
-        }
-
-        view2.setOnClickListener {
-            if (!clicked2) {
-                if (secondColor == winningColor) {
-                    score--
-                    nextRound()
-                } else {
-                    count++
-                    textColor.text = "Left to go ${3 - count}"
-                    if (count == 3) {
-                        score++
-                        nextRound()
-                    }
-                }
-            }
-            clicked2 = true
-        }
-
-        view3.setOnClickListener {
-            if (!clicked3) {
-                if (thirdColor == winningColor) {
-                    score--
-                    nextRound()
-                } else {
-                    count++
-                    textColor.text = "Left to go ${3 - count}"
-                    if (count == 3) {
-                        score++
-                        nextRound()
-                    }
-                }
-            }
-            clicked3 = true
-        }
-
-        view4.setOnClickListener {
-            if (clicked4 == false) {
-                if (fourthColor == winningColor) {
-                    score--
-                    nextRound()
-                } else {
-                    count++
-                    textColor.text = "Left to go ${3 - count}"
-                    if (count == 3) {
-                        score++
-                        nextRound()
-                    }
-                }
-            }
-            clicked4 = true
+            isClicked = true
         }
     }
 }
-
-// 4 ngjyra zgjedhi random
-// 1
-// 2
-// 3
-// 4
-
-// 3 zgjedhe 1 random prej qatyne te katertave
