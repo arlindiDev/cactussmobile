@@ -1,10 +1,10 @@
 package com.mojo.myapplication
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -42,10 +42,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun nextRound() {
-        var clicked1=false
-        var clicked2=false
-        var clicked3=false
-        var clicked4=false
+        var clicked1 = false
+        var clicked2 = false
+        var clicked3 = false
+        var clicked4 = false
 
         scoreText.text = "Score: $score"
         val someColors = colors.toMutableList()
@@ -73,70 +73,71 @@ class MainActivity : AppCompatActivity() {
         var count = 0
 
         view1.setOnClickListener {
-            if(clicked1==false){
-            if (firstColor == winningColor) {
-                score--
-                nextRound()
-            } else {
-                count++
-                textColor.text = "Left to go ${3 - count}"
-                if(count == 3) {
-                    score++
+            if (!clicked1) {
+                if (firstColor == winningColor) {
+                    score--
                     nextRound()
+                } else {
+                    count++
+                    textColor.text = "Left to go ${3 - count}"
+                    if (count == 3) {
+                        score++
+                        nextRound()
+                    }
                 }
-            }}
-            clicked1=true
+            }
+            clicked1 = true
         }
 
         view2.setOnClickListener {
-            if(clicked2==false){
-            if (secondColor == winningColor) {
-                score--
-                nextRound()
-            } else {
-                count++
-                textColor.text = "Left to go ${3 - count}"
-                if(count == 3) {
-                    score++
+            if (!clicked2) {
+                if (secondColor == winningColor) {
+                    score--
                     nextRound()
+                } else {
+                    count++
+                    textColor.text = "Left to go ${3 - count}"
+                    if (count == 3) {
+                        score++
+                        nextRound()
+                    }
                 }
             }
-            }
-            clicked2=true
+            clicked2 = true
         }
 
         view3.setOnClickListener {
-            if(clicked3==false){
-            if (thirdColor == winningColor) {
-                score--
-                nextRound()
-            } else {
-                count++
-                textColor.text = "Left to go ${3 - count}"
-                if(count == 3) {
-                    score++
+            if (!clicked3) {
+                if (thirdColor == winningColor) {
+                    score--
                     nextRound()
+                } else {
+                    count++
+                    textColor.text = "Left to go ${3 - count}"
+                    if (count == 3) {
+                        score++
+                        nextRound()
+                    }
                 }
             }
-        }
-            clicked3=true
+            clicked3 = true
         }
 
         view4.setOnClickListener {
-            if(clicked4==false){
-            if (fourthColor == winningColor) {
-                score--
-                nextRound()
-            } else {
-                count++
-                textColor.text = "Left to go ${3 - count}"
-                if(count == 3) {
-                    score++
+            if (clicked4 == false) {
+                if (fourthColor == winningColor) {
+                    score--
                     nextRound()
+                } else {
+                    count++
+                    textColor.text = "Left to go ${3 - count}"
+                    if (count == 3) {
+                        score++
+                        nextRound()
+                    }
                 }
             }
-        }
-            clicked4=true
+            clicked4 = true
         }
     }
 }
