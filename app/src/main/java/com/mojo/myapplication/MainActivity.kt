@@ -31,10 +31,12 @@ class MainActivity : AppCompatActivity() {
     var score = 0
     var count = 0
 
-    var clicked1 = false
-    var clicked2 = false
-    var clicked3 = false
-    var clicked4 = false
+
+data class ViewsClicked (
+    var clicked: Boolean,
+
+)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,10 +52,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun nextRound() {
-        clicked1 = false
-        clicked2 = false
-        clicked3 = false
-        clicked4 = false
+        var clicked1 =ViewsClicked(false)
+        var clicked2=ViewsClicked(false)
+        var clicked3=ViewsClicked(false)
+        var clicked4=ViewsClicked(false)
 
         scoreText.text = "Score: $score"
         val someColors = colors.toMutableList()
@@ -84,9 +86,10 @@ class MainActivity : AppCompatActivity() {
         setOnClickForView(view4, fourthColor, clicked4)
     }
 
-    fun setOnClickForView(view: View, color: Ngjyra, isClicked: Boolean) {
+    fun setOnClickForView(view: View, color: Ngjyra, isClicked: ViewsClicked) {
+
         view.setOnClickListener {
-            if (!isClicked) {
+            if (!isClicked.clicked) {
                 if (color == winningColor) {
                     score--
                     nextRound()
@@ -99,7 +102,8 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-            isClicked = true
+
+            isClicked.clicked = true
         }
     }
 }
