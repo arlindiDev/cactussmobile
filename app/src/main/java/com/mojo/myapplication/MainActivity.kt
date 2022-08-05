@@ -89,7 +89,7 @@ data class ViewsClicked (
     fun setOnClickForView(view: View, color: Ngjyra, isClicked: ViewsClicked) {
 
         view.setOnClickListener {
-            if (!isClicked) {
+            if (!isClicked.clicked) {
                 if (color == winningColor) {
                     score--
                     nextRound()
@@ -103,7 +103,7 @@ data class ViewsClicked (
                 }
             }
 
-            viewClicked = true
+            isClicked.clicked = true
         }
     }
 }
