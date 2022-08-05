@@ -31,12 +31,9 @@ class MainActivity : AppCompatActivity() {
     var score = 0
     var count = 0
 
-
-data class ViewsClicked (
-    var clicked: Boolean,
-
-)
-
+    data class ViewsClicked (
+        var clicked: Boolean,
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +69,7 @@ data class ViewsClicked (
         val fourthColor = someColors[Random.nextInt(someColors.size)]
 
         val randomizedColors = listOf(firstColor, secondColor, thirdColor, fourthColor)
-        val winningColor = randomizedColors[Random.nextInt(randomizedColors.size)]
+        winningColor = randomizedColors[Random.nextInt(randomizedColors.size)]
 
         view1.setBackgroundColor(firstColor.color)
         view2.setBackgroundColor(secondColor.color)
@@ -87,7 +84,6 @@ data class ViewsClicked (
     }
 
     fun setOnClickForView(view: View, color: Ngjyra, isClicked: ViewsClicked) {
-
         view.setOnClickListener {
             if (!isClicked.clicked) {
                 if (color == winningColor) {
