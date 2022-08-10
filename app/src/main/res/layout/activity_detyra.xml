@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/Teksti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jepni te dhenat:"
+        tools:ignore="MissingConstraints"
+        />
+
+    <EditText
+        android:id="@+id/inputemri"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:hint="Sheno emrin..."
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/Teksti"
+        />
+
+    <EditText
+        android:id="@+id/inputmbiemri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Sheno mbiemrin..."
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/inputemri"
+
+        />
+    <EditText
+        android:id="@+id/inputage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Sheno moshen..."
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/inputmbiemri"
+         />
+
+    <EditText
+        android:id="@+id/inputanimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Sheno emrin e kafshes se preferuar..."
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/inputage"
+         />
+
+    <Button
+        android:id="@+id/butoni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="424dp"
+        android:text="Llogarit"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/inputanimal"/>
+
+    <TextView
+        android:id="@+id/tregoShkronjat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="...."
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/butoni"
+         />
+
+        <TextView
+        android:id="@+id/tregousernamin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="...."
+        android:layout_marginTop="20dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/tregoShkronjat"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
