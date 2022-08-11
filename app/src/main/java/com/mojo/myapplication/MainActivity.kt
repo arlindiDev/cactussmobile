@@ -1,105 +1,40 @@
 package com.mojo.myapplication
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import kotlin.random.Random
+import androidx.appcompat.widget.LinearLayoutCompat
 
 class MainActivity : AppCompatActivity() {
-    private val colors = listOf(
-        Ngjyra("Black", Color.parseColor("#000000")),
-        Ngjyra("Red", Color.RED),
-        Ngjyra("BLUE", Color.BLUE),
-        Ngjyra("Pink", Color.parseColor("#ff00ff")),
-        Ngjyra("Yellow", Color.parseColor("#ffff00")),
-        Ngjyra("Silver", Color.parseColor("#c0c0c0")),
-    )
 
-    data class Ngjyra(val emri: String, val color: Int)
-
-    lateinit var view1: View
-    lateinit var view2: View
-    lateinit var view3: View
-    lateinit var view4: View
-    lateinit var textColor: TextView
-    lateinit var scoreText: TextView
-
-    lateinit var firstColor: Ngjyra
-    lateinit var winningColor: Ngjyra
-    var score = 0
-    var count = 0
-
-    data class ViewsClicked (
-        var clicked: Boolean,
-    )
+    lateinit var content: LinearLayoutCompat
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        view1 = findViewById(R.id.view1)
-        view2 = findViewById(R.id.view2)
-        view3 = findViewById(R.id.view3)
-        view4 = findViewById(R.id.view4)
-        textColor = findViewById(R.id.textColor)
-        scoreText = findViewById(R.id.score)
 
-        nextRound()
-    }
+        content = findViewById(R.id.content)
 
-    fun nextRound() {
-        var clicked1 =ViewsClicked(false)
-        var clicked2=ViewsClicked(false)
-        var clicked3=ViewsClicked(false)
-        var clicked4=ViewsClicked(false)
+        val animals = mapOf(
+            "Bubi" to R.drawable.dog,
+            "Haski" to R.drawable.dog1,
+            "Sharri" to R.drawable.dog2,
+            "Reksi" to R.drawable.dog3,
+            "Dobermani" to R.drawable.dog4,
+            "Qeni" to R.drawable.dog5
+        )
 
-        scoreText.text = "Score: $score"
-        val someColors = colors.toMutableList()
+        for(animal in animals) {
+            val animalItem = layoutInflater.inflate(R.layout.animal_item, null)
 
-        firstColor = someColors[Random.nextInt(someColors.size)]
-        someColors.remove(firstColor)
+            val animalNameText = animalItem.findViewById<TextView>(R.id.animalNameText)
+            val animalImage = animalItem.findViewById<ImageView>(R.id.animalImage)
 
-        val secondColor = someColors[Random.nextInt(someColors.size)]
-        someColors.remove(secondColor)
+            animalNameText.text = animal.key
+            animalImage.setImageResource(animal.value)
 
-        val thirdColor = someColors[Random.nextInt(someColors.size)]
-        someColors.remove(thirdColor)
-
-        val fourthColor = someColors[Random.nextInt(someColors.size)]
-
-        val randomizedColors = listOf(firstColor, secondColor, thirdColor, fourthColor)
-        winningColor = randomizedColors[Random.nextInt(randomizedColors.size)]
-
-        view1.setBackgroundColor(firstColor.color)
-        view2.setBackgroundColor(secondColor.color)
-        view3.setBackgroundColor(thirdColor.color)
-        view4.setBackgroundColor(fourthColor.color)
-        textColor.text = winningColor.emri
-
-        setOnClickForView(view1, firstColor, clicked1)
-        setOnClickForView(view2, secondColor, clicked2)
-        setOnClickForView(view3, thirdColor, clicked3)
-        setOnClickForView(view4, fourthColor, clicked4)
-    }
-
-    fun setOnClickForView(view: View, color: Ngjyra, isClicked: ViewsClicked) {
-        view.setOnClickListener {
-            if (!isClicked.clicked) {
-                if (color == winningColor) {
-                    score--
-                    nextRound()
-                } else {
-                    count++
-                    textColor.text = "Left to go ${3 - count}"
-                    if (count == 3) {
-                        score++
-                        nextRound()
-                    }
-                }
-            }
-
-            isClicked.clicked = true
+            content.addView(animalItem)
         }
     }
 }
