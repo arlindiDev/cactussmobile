@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.random.Random
 
 
 class Detyra : AppCompatActivity() {
@@ -23,48 +24,79 @@ class Detyra : AppCompatActivity() {
         var tregoshkronjat = findViewById<TextView>(R.id.tregoShkronjat)
         var tregousernamin = findViewById<TextView>(R.id.tregousernamin)
 
-        var randomDogName = listOf(
-            "Bubi",
-            "Pitbull",
-            "Husky",
-            "Dobbberman",
-            "Labrador",
-            "German Shepherd",
-            "Bulldog"
-        ).random()
-        var randomCatName =
-            listOf("Abyssinian", "Burmese", "British", "Cornish", "Devon", "Egyptian").random()
-        var randomDinosaurName =
-            listOf("Raptor", "Rex", "Robber", "Roof", "Stego", "Saurus", "Lizard").random()
+        var randomDogName = listOf("Bubi", "Pitbull", "Husky", "Dobbberman", "Labrador", "German Shepherd", "Bulldog").random()
+        var randomCatName = listOf("Abyssinian", "Burmese", "British", "Cornish", "Devon", "Egyptian").random()
+        var randomDinosaurName = listOf("Raptor", "Rex", "Robber", "Roof", "Stego", "Saurus", "Lizard").random()
 
-        fun shfaqUsernamin(emri: String, mbiemri: String, kafsha: String, mosha: Editable) {
+        lateinit var kafsha:String
+        fun randomUsername1(emri: String, mbiemri: String, kafsha: String, mosha: Editable): String {
             if (kafsha.lowercase() == "dog") {
-                tregousernamin.text = ("${emri.get(0)}${mbiemri.get(0)}${mosha}.${randomDogName}")
+                return ("${emri.get(0)}${mbiemri.get(0)}${mosha}.${randomDogName}")
             }
             if (kafsha.lowercase() == "dinosaur") {
-                tregousernamin.text = "${emri.get(0)}${mbiemri.get(0)}${mosha}.${randomDinosaurName}"
+                return ("${emri.get(0)}${mbiemri.get(0)}${mosha}.${randomDinosaurName}")
             }
             if (kafsha.lowercase() == "cats") {
-                tregousernamin.text =
-                    "${emri.get(0)}${mbiemri.get(0)}${mosha}.${randomCatName}"
+                return ("${emri.get(0)}${mbiemri.get(0)}${mosha}.${randomCatName}")
             } else {
-                tregousernamin.text = "${emri}.${mbiemri.get(0)}${mosha}"
+                return ("${emri.get(0)}.${mbiemri.get(0)}${mosha}")
+            }
+        }
+
+        fun randomUsername2(emri: String, mbiemri: String, kafsha: String, mosha: Editable): String {
+            if (kafsha.lowercase() == "dog") {
+                return ("${emri}${mbiemri.get(0)}.${randomDogName}")
+            }
+            if (kafsha.lowercase() == "dinosaur") {
+                return ("${emri}${mbiemri.get(0)}.${randomDinosaurName}")
+            }
+            if (kafsha.lowercase() == "cats") {
+                return ("${emri}${mbiemri.get(0)}.${randomCatName}")
+            } else {
+                return ("${emri.take(2)}.${mbiemri.take(2)}${mosha}")
+            }
+        }
+
+        fun randomUsername3(emri: String, mbiemri: String, kafsha: String, mosha: Editable): String {
+            if (kafsha.lowercase() == "dog") {
+                return ("${emri}${mbiemri}.${randomDogName}${mosha}")
+            }
+            if (kafsha.lowercase() == "dinosaur") {
+                return ("${emri}${mbiemri}.${randomDinosaurName}${mosha}")
+            }
+            if (kafsha.lowercase() == "cats") {
+                return ("${emri}${mbiemri}.${randomCatName}${mosha}")
+            } else {
+                return ("${emri.take(1)}.${mbiemri}${mosha}")
             }
         }
 
 
-        butoni.setOnClickListener {
-            var gjatesiaeEmrit = emri.text.length
-            var kafsha = animal.text
-            tregoshkronjat.text = "Emri juaj ka ${gjatesiaeEmrit} shkronja"
-            shfaqUsernamin(
+        var randomUserNames = listOf(randomUsername1(
                 emri.text.toString(),
                 mbiemri.text.toString(),
-                kafsha.toString(),
+                kafsha ,
+                mosha.text
+            ), randomUsername2(
+                emri.text.toString(),
+                mbiemri.text.toString(),
+                kafsha ,
+                mosha.text
+            ), randomUsername3(
+                emri.text.toString(),
+                mbiemri.text.toString(),
+                kafsha,
                 mosha.text
             )
+        )
+        butoni.setOnClickListener {
+            val gjatesiaeEmrit = emri.text.length
+            var kafsha = animal.text
+            tregoshkronjat.text = "Emri juaj ka ${gjatesiaeEmrit} shkronja"
+            tregousernamin.text = randomUserNames[Random.nextInt(randomUserNames.size)]
 
         }
+
 
     }
 
