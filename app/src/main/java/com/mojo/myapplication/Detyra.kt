@@ -42,11 +42,11 @@ class Detyra : AppCompatActivity() {
                 tregousernamin.text = ("${emri.get(0)}${mbiemri.get(0)}${mosha}.${randomDogName}")
             }
             if (kafsha.lowercase() == "dinosaur") {
-                tregousernamin.text = "${emri.get(0)}${mbiemri.get(0)}${mosha}.${randomCatName}"
+                tregousernamin.text = "${emri.get(0)}${mbiemri.get(0)}${mosha}.${randomDinosaurName}"
             }
             if (kafsha.lowercase() == "cats") {
                 tregousernamin.text =
-                    "${emri.get(0)}${mbiemri.get(0)}${mosha}.${randomDinosaurName}"
+                    "${emri.get(0)}${mbiemri.get(0)}${mosha}.${randomCatName}"
             } else {
                 tregousernamin.text = "${emri}.${mbiemri.get(0)}${mosha}"
             }
