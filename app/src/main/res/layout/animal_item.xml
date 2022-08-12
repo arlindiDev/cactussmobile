@@ -36,4 +36,13 @@
         android:textColor="#000"
         android:textSize="40sp" />
 
+    <TextView
+        android:id="@+id/cuteText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CUTE"
+        android:visibility="gone"
+        android:textColor="#000"
+        android:textSize="40sp" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>
