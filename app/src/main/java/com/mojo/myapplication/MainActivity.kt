@@ -16,13 +16,13 @@ class MainActivity : AppCompatActivity() {
 
         content = findViewById(R.id.content)
 
-        val animals = mapOf(
-            "Bubi" to R.drawable.dog,
-            "Haski" to R.drawable.dog1,
-            "Sharri" to R.drawable.dog2,
-            "Reksi" to R.drawable.dog3,
-            "Dobermani" to R.drawable.dog4,
-            "Qeni" to R.drawable.dog5
+        val animals = listOf(
+            Dog("Bubi", R.drawable.dog, "qen i mir", "3 vet"),
+            Dog("Reksi", R.drawable.dog1, "qen i mir", "4 vet"),
+            Dog("Sharri", R.drawable.dog2, "qen i mir", "1 vet"),
+            Dog("Haski", R.drawable.dog3, "qen i mir", "2 muj"),
+            Dog("Meksi", R.drawable.dog4, "qen i mir", "3 vet"),
+            Dog("Lacy", R.drawable.dog5, "qen i mir", "1 vet"),
         )
 
         for(animal in animals) {
@@ -31,10 +31,17 @@ class MainActivity : AppCompatActivity() {
             val animalNameText = animalItem.findViewById<TextView>(R.id.animalNameText)
             val animalImage = animalItem.findViewById<ImageView>(R.id.animalImage)
 
-            animalNameText.text = animal.key
-            animalImage.setImageResource(animal.value)
+            animalNameText.text = animal.name
+            animalImage.setImageResource(animal.image)
 
             content.addView(animalItem)
         }
     }
 }
+
+data class Dog(
+    val name: String,
+    val image: Int,
+    val description: String,
+    val age: String,
+)
