@@ -7,11 +7,12 @@
     <ImageView
         android:id="@+id/animalImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:src="@drawable/dog" />
 
     <TextView
         android:id="@+id/animalNameText"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -22,6 +23,7 @@
 
     <TextView
         android:id="@+id/descriptionText"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Qeni i mire i shpis tmire, nuk han"
@@ -31,6 +33,7 @@
     <TextView
         android:id="@+id/ageText"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         android:text="mosha: 3 vjet"
         android:textColor="#000"
@@ -44,5 +47,37 @@
         android:visibility="gone"
         android:textColor="#000"
         android:textSize="40sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+    <Button
+        android:id="@+id/likeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LIKE"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@android:color/darker_gray"
+        />
+    <Button
+        android:id="@+id/dislikeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DISLIKE"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@android:color/darker_gray"
+        />
+    <TextView
+        android:id="@+id/likesNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="0"
+        android:textSize="25dp"
+        />
+</LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
