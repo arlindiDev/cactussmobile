@@ -14,7 +14,7 @@
         android:background="@color/white"
         android:scaleType="fitCenter"
         android:src="@drawable/dog"
-        android:contentDescription="@string/Bubi"/>
+        android:contentDescription="Shfaq imazhin e kafshes"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,7 +30,7 @@
             android:scaleType="fitCenter"
             android:clickable="true"
             android:contentDescription="@string/ImazhiButonit"
-            android:focusable="true">
+            >
         </ImageButton>
 
         <TextView
