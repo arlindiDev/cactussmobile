@@ -1,40 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/animalImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/dog" />
+        android:padding="@dimen/cardview_default_elevation"
+        android:layout_height="400dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        android:src="@drawable/dog"
+        android:contentDescription="Shfaq imazhin e kafshes"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ImageButton
+            android:id="@+id/likeButton"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_baseline_thumb_up_24"
+            android:background="@color/white"
+            android:scaleType="fitCenter"
+            android:clickable="true"
+            android:contentDescription="@string/ImazhiButonit"
+            >
+        </ImageButton>
+
+        <TextView
+            android:id="@+id/tekstiTeButoni"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="You liked it"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:visibility="invisible">
+
+        </TextView>
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/animalNameText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="Bubi"
+        android:text="@string/Bubi"
         android:textColor="#000"
         android:textSize="40sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/descriptionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Qeni i mire i shpis tmire, nuk han"
+        android:text="@string/Peshkrimi"
         android:textColor="#000"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/ageText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="mosha: 3 vjet"
+        android:text="@string/Mosha"
         android:textColor="#000"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:visibility="invisible"/>
+    <TextView
+        android:id="@+id/isCute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cute"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="40sp">
+
+    </TextView>
 
     <TextView
         android:id="@+id/cuteText"
