@@ -1,7 +1,5 @@
 package com.mojo.myapplication
 
-import android.annotation.SuppressLint
-import android.media.Image
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -13,39 +11,11 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var content: LinearLayoutCompat
 
-
-    open class Animal(
-        val name: String,
-        @DrawableRes var image: Int,
-        val age: String,
-        val description: String,
-    )
-
-    class Dog(
-        name: String,
-        image: Int,
-        age: String,
-        description: String
-    ) : Animal(name, image, age, description)
-
-
-    class Cat(
-        name: String,
-        image: Int,
-        age: String,
-        description: String,
-        val isCute: Boolean
-    ) : Animal(name, image, age, description)
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         content = findViewById(R.id.content)
-
-
-
 
         val animals = listOf(
             Dog("Bubi", R.drawable.dog, "Mosha: 6 muaj", "Bubi eshte nje Laborador Retriever, shume i embel."),
@@ -53,7 +23,6 @@ class MainActivity : AppCompatActivity() {
             Dog("Tokyo", R.drawable.dog2, "Mosha: 5 vjet", "Tokyo eshte nje Golden Retriever dhe i do te gjithe."),
             Cat("Lara", R.drawable.cat, "Mosha: 3 muaj", "Lara eshte nje Munchkin. Eshte lozonjare dhe e dashur.", true)
         )
-
 
         for (animal in animals) {
             val animalItem = layoutInflater.inflate(R.layout.animal_item, null)
@@ -66,13 +35,13 @@ class MainActivity : AppCompatActivity() {
             val likeButoni= animalItem.findViewById<ImageView>(R.id.likeButton)
             val tekstiTeButoni = animalItem.findViewById<TextView>(R.id.tekstiTeButoni)
 
-                likeButoni.setOnClickListener(){
+                likeButoni.setOnClickListener {
                     if (likeButoni.isClickable){
                       tekstiTeButoni.visibility = View.VISIBLE
                     }
                 }
 
-            animalImage.setOnClickListener(){
+            animalImage.setOnClickListener {
                 if (animalImage.isClickable){
                     ageText.visibility =View.VISIBLE
                     descriptionText.visibility =View.VISIBLE
@@ -83,14 +52,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-
-
             animalNameText.text = animal.name
             animalImage.setImageResource(animal.image)
             descriptionText.text = animal.description
             ageText.text = animal.age
-
-
 
             content.addView(animalItem)
         }
@@ -99,23 +64,22 @@ class MainActivity : AppCompatActivity() {
 
 open class Animal(
     val name: String,
-    @DrawableRes val image: Int,
-    val description: String,
+    @DrawableRes var image: Int,
     val age: String,
+    val description: String,
 )
 
 class Dog(
     name: String,
     image: Int,
-    description: String,
     age: String,
-) : Animal(name, image, description, age)
+    description: String
+) : Animal(name, image, age, description)
 
 class Cat(
     name: String,
     image: Int,
-    description: String,
     age: String,
+    description: String,
     val isCute: Boolean
-) : Animal(name, image, description, age)
-
+) : Animal(name, image, age, description)
