@@ -47,12 +47,12 @@ class MainActivity : AppCompatActivity() {
 
                 likeButoni.setOnClickListener {
                     if (likeButoni.isClickable){
-                      tekstiTeButoni.visibility = View.VISIBLE
+                        tekstiTeButoni.visibility = View.VISIBLE
                     }
                 }
 
             animalImage.setOnClickListener {
-                if (tekstiTeButoni.isClickable){
+                if (animalImage.isClickable){
                     ageText.visibility =View.VISIBLE
                     descriptionText.visibility =View.VISIBLE
                     animalNameText.visibility =View.VISIBLE
