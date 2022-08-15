@@ -17,11 +17,10 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.177" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_main_version_tablet.xml" value="0.125" />
-        <entry key="app/src/main/res/layout/animal_item.xml" value="0.1092896174863388" />
+        <entry key="app/src/main/res/layout/animal_item.xml" value="0.165" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
