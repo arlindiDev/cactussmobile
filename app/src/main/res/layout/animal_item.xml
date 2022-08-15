@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageButton
+    <ImageView
         android:id="@+id/animalImage"
         android:layout_width="match_parent"
         android:padding="@dimen/cardview_default_elevation"
@@ -21,7 +21,7 @@
         android:orientation="vertical">
 
 
-        <ImageButton
+        <ImageView
             android:id="@+id/likeButton"
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -31,7 +31,7 @@
             android:clickable="true"
             android:contentDescription="@string/ImazhiButonit"
             >
-        </ImageButton>
+        </ImageView>
 
         <TextView
             android:id="@+id/tekstiTeButoni"
