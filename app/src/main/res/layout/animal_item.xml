@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageButton
+    <ImageView
         android:id="@+id/animalImage"
         android:layout_width="match_parent"
         android:padding="@dimen/cardview_default_elevation"
@@ -14,17 +14,14 @@
         android:background="@color/white"
         android:scaleType="fitCenter"
         android:src="@drawable/dog"
-        android:contentDescription="Shfaq imazhin e kafshes"/>
+        android:contentDescription="@string/shfaq_imazhin_e_kafshes"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-
         <ImageView
-
-        <ImageButton
             android:id="@+id/likeButton"
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -33,11 +30,9 @@
             android:scaleType="fitCenter"
             android:clickable="true"
             android:contentDescription="@string/ImazhiButonit"
-            >
+            android:focusable="true">
+
         </ImageView>
-
-        </ImageButton>
-
 
         <TextView
             android:id="@+id/tekstiTeButoni"
@@ -81,24 +76,12 @@
         android:textColor="#000"
         android:textSize="40sp"
         android:visibility="invisible"/>
-        
-    <TextView
-        android:id="@+id/isCute"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cute"
-        android:visibility="invisible"
-        android:textColor="@color/black"
-        android:textSize="40sp">
-
-    </TextView>
 
     <TextView
         android:id="@+id/cuteText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CUTE"
-        android:visibility="gone"
         android:textColor="#000"
         android:textSize="40sp"
         android:visibility="invisible"/>
