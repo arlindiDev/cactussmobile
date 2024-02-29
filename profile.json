@@ -1,0 +1,45 @@
+{
+  "status": "success",
+  "message": "successful",
+  "personal_info": {
+    "first_name": "John",
+    "last_name": "Doe",
+    "birthday": "1990-05-15",
+    "country": "United States",
+    "city": "New York",
+    "zip": "10001",
+    "gender": "Male",
+    "height": 180,
+    "weight": 75,
+    "ethnicity": "Caucasian"
+  },
+  "user_info": {
+    "image_url": "https://example.com/profile_image.jpg",
+    "profile_completion_percentage": 75,
+    "total_earnings_this_year": 5000,
+    "health_state": "Good",
+    "daily_streak": 30
+  },
+  "health_pools": [
+    {
+      "status": "Active",
+      "title": "Weight Loss Challenge",
+      "from": "2024-01-01",
+      "to": "2024-03-01",
+      "health_score": 85,
+      "prize_fund": 10000,
+      "participants": 50,
+      "days_in": 60
+    },
+    {
+      "status": "Completed",
+      "title": "Fitness Challenge",
+      "from": "2024-02-01",
+      "to": "2024-03-01",
+      "health_score": 90,
+      "prize_fund": 8000,
+      "participants": 30,
+      "days_in": 28
+    }
+  ]
+}
