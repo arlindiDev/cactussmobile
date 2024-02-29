@@ -1,7 +1,8 @@
 {
   "status": "success",
   "message": "successful",
-  "personal_info": {
+  "profile": {
+    "personal_info": {
     "first_name": "John",
     "last_name": "Doe",
     "birthday": "1990-05-15",
@@ -42,4 +43,5 @@
       "days_in": 28
     }
   ]
+  }
 }
